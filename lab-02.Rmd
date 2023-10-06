@@ -116,7 +116,11 @@ plastic_data_all %>%
 ### Ex 4.
 
 ```{r Ex4, message = FALSE}
-# Write your code here to answer exercise 4
+colreplacevector <-  c( pop = "population",  plastic_ocea = "mismanaged_plastic_ocean" , plastic = "mismanaged_plastic")
+  
+plastic_data_all %>% rename(all_of(colreplacevector)) 
+# 
+#   str_replace_all()
 
 
 
