@@ -456,7 +456,23 @@ plastic_data_all %&gt;%
 </div>
 <div id="ex-3." class="section level3">
 <h3>Ex 3.</h3>
-<pre class="r"><code># Write your code here to answer exercise 3</code></pre>
+<pre class="r"><code># Write your code here to answer exercise 3
+plastic_data_all %&gt;%
+  mutate(total_mismanaged_plastic = mismanaged_plastic*population) %&gt;%
+  mutate(pct_mismanaged_plastic_ocean = (mismanaged_plastic*100)/total_mismanaged_plastic) %&gt;%
+  group_by(region) %&gt;%
+  summarise(
+    median_mismanaged_plastic = median(pct_mismanaged_plastic_ocean, na.rm =T)
+  )</code></pre>
+<pre><code>## # A tibble: 6 × 2
+##   region                          median_mismanaged_plastic
+##   &lt;chr&gt;                                               &lt;dbl&gt;
+## 1 Africa                                            0.0103 
+## 2 Asia                                              0.00463
+## 3 Europe                                            0.0173 
+## 4 Latin America and The Caribbean                   0.0297 
+## 5 North America                                     0.00149
+## 6 Oceania                                           0.312</code></pre>
 </div>
 <div id="ex-4." class="section level3">
 <h3>Ex 4.</h3>
