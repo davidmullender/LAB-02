@@ -91,10 +91,10 @@ plastic_data_all %>%
 ### Ex 2.
 
 ```{r Ex2, message = FALSE}
-# Write your code here to answer exercise 2
-
-
-
+plastic_data_all %>% 
+  group_by(region) %>%
+  summarise(
+    mean_mismanaged_plastic = mean(mismanaged_plastic)) 
 ```
 
 
